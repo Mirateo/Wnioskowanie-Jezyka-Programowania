@@ -1,12 +1,11 @@
-# The `LanguageInferenceSystem` class is a language recommendation system that calculates scores for
-# different programming languages based on user input and returns the top 5 recommended languages.
 from tools.dbService import generateDatabase
 from pickledb import PickleDB
 
 """
 LanguageInferenceSystem class.
 
-This class represents a language inference system that recommends programming languages based on user input.
+This class represents a language inference system that recommends programming languages
+based on user input.
 
 Attributes:
     languagesDB (PickleDB): The database of programming languages.

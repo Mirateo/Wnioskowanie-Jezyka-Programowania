@@ -1,5 +1,3 @@
-# The above class is a PyQt5 application window that allows users to input information about their
-# project and receive language recommendations based on their inputs.
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QListWidget, QListWidgetItem
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QRadioButton, QSlider
 from PyQt5.uic import loadUi
