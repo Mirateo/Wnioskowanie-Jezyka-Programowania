@@ -1,35 +1,24 @@
+# The `LanguageInferenceSystem` class is a language recommendation system that calculates scores for
+# different programming languages based on user input and returns the top 5 recommended languages.
 from tools.dbService import generateDatabase
 from pickledb import PickleDB
 
-class EnumPrType():
-    OTHER = 0
-    DATA_SCIENCE = 1
-    DATABASE = 2
-    DESKTOP = 3
-    GAME = 4
-    MOBILE = 5
-    SCRIPT = 6
-    WEB = 7
-    EMBEDDED = 8
+"""
+LanguageInferenceSystem class.
 
-class EnumUI():
-    MAIN = 0
-    PR_TYPE = 1
-    FORM = 2
-    EXP = 3
-    RESULTS = 4
+This class represents a language inference system that recommends programming languages based on user input.
 
-class EnumLenType():
-    SCRIPTED = 0
-    COMPILED = 1
-    INTERPRETED = 2
+Attributes:
+    languagesDB (PickleDB): The database of programming languages.
+    userData (dict): User input data.
 
-class EnumSize():
-    TINY = 0
-    SMALL = 1
-    REGULAR = 2
-    BIG = 3
+Methods:
+    __init__(): Initializes the LanguageInferenceSystem object.
+    run(): Runs the language inference system and returns the top 5 recommended languages.
+    calculateScore(language): Calculates the score for a given language based on user input.
+    parseLanguage(index, language): Parses the language data and returns a formatted string.
 
+"""
 class LanguageInferenceSystem:
     languagesDB: PickleDB
     userData = {"projectType": None,
@@ -49,6 +38,17 @@ class LanguageInferenceSystem:
             print("Database failure")
             exit()
 
+    """
+    run method.
+
+    Runs the language inference system and returns the top 5 recommended languages.
+
+    Args:
+        self: The LanguageInferenceSystem object.
+
+    Returns:
+        list: The top 5 recommended languages.
+    """
     def run(self):
         scores = {
             language: self.calculateScore(language)
@@ -61,6 +61,19 @@ class LanguageInferenceSystem:
             for index in range(5)
         ]
 
+    """
+    calculateScore method.
+
+    Calculates the score for a given language based on user input.
+
+    Args:
+        self: The LanguageInferenceSystem object.
+        language: The language for which the score is calculated.
+
+    Returns:
+        float: The calculated score for the language.
+
+    """
     def calculateScore(self, language):
         languageData = self.languagesDB.get(language)
         score = 0
@@ -68,9 +81,9 @@ class LanguageInferenceSystem:
         if (self.userData["projectType"] == 0 or
             self.userData["projectType"] in languageData["Project type"]):
             score += 1
-        if (self.userData["modernity"] != None):
+        if self.userData["modernity"] is not None:
             score += self.userData["modernity"] * languageData["Modernity"] * 0.1
-        if (self.userData["performance"] != None):
+        if self.userData["performance"] is not None:
             score += self.userData["performance"] * languageData["Performance"] * 0.1
         if (self.userData["complexity"] is None or (len(languageData["Complexity"]) and
             self.userData["complexity"] == languageData["Complexity"])):
@@ -80,19 +93,33 @@ class LanguageInferenceSystem:
                 if self.userData["complexity"] in [complexity + 1, complexity - 1]:
                     score += 0.5
                     break
-        if self.userData["scalability"] != None:
+        if self.userData["scalability"] is not None:
             score += self.userData["scalability"] * languageData["Scalability"] * 0.1
-        if self.userData["popularity"] != None:
+        if self.userData["popularity"] is not None:
             score += self.userData["popularity"] * languageData["Popularity"] * 0.1
         if self.userData["lenType"] is None or\
                 self.userData["lenType"] == languageData["Language type"]:
             score += 5
-        if (self.userData["experienced"] != None and self.userData["experienced"] and
+        if (self.userData["experienced"] is not None and self.userData["experienced"] and
                 language in self.userData["experience"]):
             score += self.userData["experience"][language]/100
 
         return score
 
+    """
+    parseLanguage method.
+
+    Parses the language data and returns a formatted string.
+
+    Args:
+        self: The LanguageInferenceSystem object.
+        index: The index of the language.
+        language: The language to parse.
+
+    Returns:
+        str: The formatted string representing the language information.
+
+    """
     def parseLanguage(self, index, language):
         langDict = self.languagesDB.get(language)
         match langDict['Language type']:

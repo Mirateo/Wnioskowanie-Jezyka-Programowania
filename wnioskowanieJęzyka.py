@@ -1,8 +1,24 @@
+# The above class is a PyQt5 application window that allows users to input information about their
+# project and receive language recommendations based on their inputs.
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QListWidget, QListWidgetItem
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QRadioButton, QSlider
 from PyQt5.uic import loadUi
-from inferenceApp import LanguageInferenceSystem, EnumUI, EnumLenType, EnumPrType, EnumSize
+from inferenceApp import LanguageInferenceSystem
+from tools.Enums import EnumUI, EnumLenType, EnumPrType, EnumSize
 
+"""
+AppWindow class.
+
+This class represents the main application window for the language inference system.
+
+Methods:
+    retry(): Resets the system and returns to the main UI.
+    init_results(): Initializes the results UI and displays the top 5 recommended languages.
+    evaluateExp(expUi): Evaluates the experience input and proceeds to the next UI.
+    evaluateForm(formUi): Evaluates the form input and proceeds to the next UI.
+    assignProjectType(prType): Assigns the project type and switches to the form input UI.
+
+"""
 class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
@@ -69,10 +85,20 @@ class AppWindow(QMainWindow):
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
 
+    """
+    retry method.
+
+    Resets the system and returns to the main UI.
+    """
     def retry(self):
         self.system = LanguageInferenceSystem()
         self.stacked_widget.setCurrentIndex(EnumUI.MAIN)
 
+    """
+    init_results method.
+
+    Initializes the results UI and displays the top 5 recommended languages.
+    """
     def init_results(self):
         listWidget = self.resultsUI.findChild(QListWidget, 'listWidget')
         listWidget.clear()
@@ -80,6 +106,15 @@ class AppWindow(QMainWindow):
             listWidget.addItem(QListWidgetItem(language))
         self.stacked_widget.setCurrentIndex(EnumUI.RESULTS)
 
+    """
+    evaluateExp method.
+
+    Evaluates the experience input and proceeds to the next UI.
+
+    Args:
+        self: The AppWindow object.
+        expUi: The experience input UI.
+    """
     def evaluateExp(self, expUi):
         sliders = [expUi.findChild(QSlider, 'pythonSlider'),
             expUi.findChild(QSlider, 'cSlider'),
@@ -108,6 +143,15 @@ class AppWindow(QMainWindow):
 
         self.init_results()
 
+    """
+    evaluateForm method.
+
+    Evaluates the form input and proceeds to the next UI.
+
+    Args:
+        self: The AppWindow object.
+        formUi: The form input UI.
+    """
     def evaluateForm(self, formUi):
         modernButton_0 = formUi.findChild(QRadioButton, 'modernButton_0')
         modernButton_1 = formUi.findChild(QRadioButton, 'modernButton_1')
@@ -203,7 +247,15 @@ class AppWindow(QMainWindow):
             self.stacked_widget.setCurrentIndex(EnumUI.EXP)
         else:
             self.init_results()
+    """
+    assignProjectType method.
 
+    Assigns the project type and switches to the form input UI.
+
+    Args:
+        self: The AppWindow object.
+        prType (EnumPrType): The project type to assign.
+    """
     def assignProjectType(self, prType:EnumPrType):
         self.system.userData["projectType"] = prType
         self.stacked_widget.setCurrentIndex(EnumUI.FORM)

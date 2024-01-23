@@ -1,6 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
+"""
+scrapTiobeIndex function.
+
+This function scrapes the TIOBE index website to retrieve the popularity ratings of programming languages.
+"""
 def scrapTiobeIndex():
     url = "https://www.tiobe.com/tiobe-index/"
     response = requests.get(url)

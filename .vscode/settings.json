@@ -5,5 +5,8 @@
         "pickledb",
         "tiobe",
         "totalkeys"
+    ],
+    "python.analysis.extraPaths": [
+        "./tools"
     ]
 }
