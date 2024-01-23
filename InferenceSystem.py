@@ -2,20 +2,20 @@ from tools.dbService import generateDatabase
 from pickledb import PickleDB
 
 """
-LanguageInferenceSystem class.
+    LanguageInferenceSystem class.
 
-This class represents a language inference system that recommends programming languages
-based on user input.
+    This class represents a language inference system that recommends programming languages
+    based on user input.
 
-Attributes:
-    languagesDB (PickleDB): The database of programming languages.
-    userData (dict): User input data.
+    Attributes:
+        languagesDB (PickleDB): The database of programming languages.
+        userData (dict): User input data.
 
-Methods:
-    __init__(): Initializes the LanguageInferenceSystem object.
-    run(): Runs the language inference system and returns the top 5 recommended languages.
-    calculateScore(language): Calculates the score for a given language based on user input.
-    parseLanguage(index, language): Parses the language data and returns a formatted string.
+    Methods:
+        __init__(): Initializes the LanguageInferenceSystem object.
+        run(): Runs the language inference system and returns the top 5 recommended languages.
+        calculateScore(language): Calculates the score for a given language based on user input.
+        parseLanguage(index, language): Parses the language data and returns a formatted string.
 
 """
 class LanguageInferenceSystem:
@@ -31,6 +31,7 @@ class LanguageInferenceSystem:
                 "experience": {}}
 
     def __init__(self):
+        # create/load database
         self.languagesDB = generateDatabase()
         # test data
         if self.languagesDB.totalkeys() != 20:
@@ -38,52 +39,63 @@ class LanguageInferenceSystem:
             exit()
 
     """
-    run method.
+        run method.
 
-    Runs the language inference system and returns the top 5 recommended languages.
+        Runs the language inference system and returns the top 5 recommended languages.
 
-    Args:
-        self: The LanguageInferenceSystem object.
+        Args:
+            self: The LanguageInferenceSystem object.
 
-    Returns:
-        list: The top 5 recommended languages.
+        Returns:
+            list: The top 5 recommended languages.
     """
     def run(self):
+        # calculate score for every language
         scores = {
             language: self.calculateScore(language)
             for language in self.languagesDB.getall()
         }
+        # sort results
         sorted_languages = sorted(scores, key=lambda lang: scores[lang], reverse=True)
-        print(scores)
+        # parse and return 5 best results
         return [
             self.parseLanguage(index + 1, sorted_languages[index])
             for index in range(5)
         ]
 
     """
-    calculateScore method.
+        calculateScore method.
 
-    Calculates the score for a given language based on user input.
+        Calculates the score for a given language based on user input.
 
-    Args:
-        self: The LanguageInferenceSystem object.
-        language: The language for which the score is calculated.
+        Args:
+            self: The LanguageInferenceSystem object.
+            language: The language for which the score is calculated.
 
-    Returns:
-        float: The calculated score for the language.
+        Returns:
+            float: The calculated score for the language.
 
     """
     def calculateScore(self, language):
+        # load languages info
         languageData = self.languagesDB.get(language)
         score = 0
 
+        # +[0, 1]
+        # project type matches = 1; doesn't match = 0
         if (self.userData["projectType"] == 0 or
             self.userData["projectType"] in languageData["Project type"]):
             score += 1
+        # + <0, 1>
+        # (modernity level <0-10> * importance for user [0, 0.3, 0.6, 1]) / 10
         if self.userData["modernity"] is not None:
             score += self.userData["modernity"] * languageData["Modernity"] * 0.1
+        # + <0, 1>
+        # (performance level <0-10> * importance for user [0, 0.3, 0.6, 1]) / 10
         if self.userData["performance"] is not None:
             score += self.userData["performance"] * languageData["Performance"] * 0.1
+        # + [0, 0.5, 1]
+        # complexity matches = 1; complexity almost matches = 0.5, doesn't match = 0
         if (self.userData["complexity"] is None or (len(languageData["Complexity"]) and
             self.userData["complexity"] == languageData["Complexity"])):
             score += 1
@@ -92,32 +104,41 @@ class LanguageInferenceSystem:
                 if self.userData["complexity"] in [complexity + 1, complexity - 1]:
                     score += 0.5
                     break
+        # + <0, 1>
+        # (scalability level <0-10> * importance for user [0, 0.3, 0.6, 1]) / 10
         if self.userData["scalability"] is not None:
             score += self.userData["scalability"] * languageData["Scalability"] * 0.1
+        # + <0, 1>
+        # (popularity score <0-10> * importance for user [0, 1]) / 10
         if self.userData["popularity"] is not None:
             score += self.userData["popularity"] * languageData["Popularity"] * 0.1
+        # + [0, 5]
+        # language type matches = 5; doesn't match = 0
         if self.userData["lenType"] is None or\
                 self.userData["lenType"] == languageData["Language type"]:
             score += 5
+        # + <0, 1>
+        # experience_level <0-100> / 100
         if (self.userData["experienced"] is not None and self.userData["experienced"] and
                 language in self.userData["experience"]):
             score += self.userData["experience"][language]/100
 
+        # score = <0, 12>
+        # language type value 5 points - as non-fuzzy value, every other aspect 0-1 point
         return score
 
     """
-    parseLanguage method.
+        parseLanguage method.
 
-    Parses the language data and returns a formatted string.
+        Parses the language data and returns a formatted string.
 
-    Args:
-        self: The LanguageInferenceSystem object.
-        index: The index of the language.
-        language: The language to parse.
+        Args:
+            self: The LanguageInferenceSystem object.
+            index: The index of the language.
+            language: The language to parse.
 
-    Returns:
-        str: The formatted string representing the language information.
-
+        Returns:
+            str: The formatted string representing the language information.
     """
     def parseLanguage(self, index, language):
         langDict = self.languagesDB.get(language)

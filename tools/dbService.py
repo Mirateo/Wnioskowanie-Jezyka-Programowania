@@ -2,17 +2,17 @@ from pickledb import PickleDB
 import os
 from .Enums import EnumLenType, EnumPrType, EnumSize
 
-DB_PATH = './database.db'
+DB_PATH = './tools/database.db'
 
 """
-generateDatabase function.
+    generateDatabase function.
 
-This function generates a database of programming languages with their attributes such as
-language type, modernity, performance, complexity, scalability, popularity, popularity top rank
-and project type.
+    This function generates a database of programming languages with their attributes such as
+    language type, modernity, performance, complexity, scalability, popularity, popularity top rank
+    and project type.
 
-Returns:
-    PickleDB: The generated database of programming languages.
+    Returns:
+        PickleDB: The generated database of programming languages.
 """
 def generateDatabase():
     # Load existing database if exists

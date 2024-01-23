@@ -1,20 +1,20 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QListWidget, QListWidgetItem
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QRadioButton, QSlider
 from PyQt5.uic import loadUi
-from inferenceApp import LanguageInferenceSystem
+from InferenceSystem import LanguageInferenceSystem
 from tools.Enums import EnumUI, EnumLenType, EnumPrType, EnumSize
 
 """
-AppWindow class.
+    AppWindow class.
 
-This class represents the main application window for the language inference system.
+    This class represents the main application window for the language inference system.
 
-Methods:
-    retry(): Resets the system and returns to the main UI.
-    init_results(): Initializes the results UI and displays the top 5 recommended languages.
-    evaluateExp(expUi): Evaluates the experience input and proceeds to the next UI.
-    evaluateForm(formUi): Evaluates the form input and proceeds to the next UI.
-    assignProjectType(prType): Assigns the project type and switches to the form input UI.
+    Methods:
+        retry(): Resets the system and returns to the main UI.
+        init_results(): Initializes the results UI and displays the top 5 recommended languages.
+        evaluateExp(expUi): Evaluates the experience input and proceeds to the next UI.
+        evaluateForm(formUi): Evaluates the form input and proceeds to the next UI.
+        assignProjectType(prType): Assigns the project type and switches to the form input UI.
 
 """
 class AppWindow(QMainWindow):
@@ -40,11 +40,13 @@ class AppWindow(QMainWindow):
         self.stacked_widget.addWidget(experienceUI)
         self.stacked_widget.addWidget(self.resultsUI)
 
+        # Find button in mainUI files
         startButton = mainUi.findChild(QPushButton, 'start')
 
-        # Connect buttons to switch UIs
+        # Connect button to switch UIs
         startButton.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(EnumUI.PR_TYPE))
 
+        # Find button in typeUI file
         embededButton = typeUi.findChild(QPushButton, 'embededButton')
         scriptButton = typeUi.findChild(QPushButton, 'scriptButton')
         gameButton = typeUi.findChild(QPushButton, 'gameButton')
@@ -55,6 +57,7 @@ class AppWindow(QMainWindow):
         databaseButton = typeUi.findChild(QPushButton, 'databaseButton')
         otherButton = typeUi.findChild(QPushButton, 'otherButton')
 
+        # Connect button to save project type
         embededButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.EMBEDDED))
         scriptButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.SCRIPT))
         gameButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.GAME))
@@ -65,12 +68,15 @@ class AppWindow(QMainWindow):
         databaseButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.DATABASE))
         otherButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.OTHER))
 
+        # Connect button to switch UIs and save responses
         acceptButton = formUi.findChild(QPushButton, 'acceptButton')
         acceptButton.clicked.connect(lambda: self.evaluateForm(formUi))
 
+        # Connect button to switch UIs and save experience info
         readyButton = experienceUI.findChild(QPushButton, 'pushButton')
         readyButton.clicked.connect(lambda: self.evaluateExp(experienceUI))
 
+        # Connect button to switch UIs and clean up after earlier attempt
         backButton = self.resultsUI.findChild(QPushButton, 'pushButton')
         backButton.clicked.connect(lambda: self.retry())
 
@@ -84,18 +90,18 @@ class AppWindow(QMainWindow):
         self.setCentralWidget(central_widget)
 
     """
-    retry method.
+        retry method.
 
-    Resets the system and returns to the main UI.
+        Resets the system and returns to the main UI.
     """
     def retry(self):
         self.system = LanguageInferenceSystem()
         self.stacked_widget.setCurrentIndex(EnumUI.MAIN)
 
     """
-    init_results method.
+        init_results method.
 
-    Initializes the results UI and displays the top 5 recommended languages.
+        Initializes the results UI and displays the top 5 recommended languages.
     """
     def init_results(self):
         listWidget = self.resultsUI.findChild(QListWidget, 'listWidget')
@@ -105,13 +111,13 @@ class AppWindow(QMainWindow):
         self.stacked_widget.setCurrentIndex(EnumUI.RESULTS)
 
     """
-    evaluateExp method.
+        evaluateExp method.
 
-    Evaluates the experience input and proceeds to the next UI.
+        Evaluates the experience input and proceeds to the next UI.
 
-    Args:
-        self: The AppWindow object.
-        expUi: The experience input UI.
+        Args:
+            self: The AppWindow object.
+            expUi: The experience input UI.
     """
     def evaluateExp(self, expUi):
         sliders = [expUi.findChild(QSlider, 'pythonSlider'),
@@ -142,13 +148,13 @@ class AppWindow(QMainWindow):
         self.init_results()
 
     """
-    evaluateForm method.
+        evaluateForm method.
 
-    Evaluates the form input and proceeds to the next UI.
+        Evaluates the form input and proceeds to the next UI.
 
-    Args:
-        self: The AppWindow object.
-        formUi: The form input UI.
+        Args:
+            self: The AppWindow object.
+            formUi: The form input UI.
     """
     def evaluateForm(self, formUi):
         modernButton_0 = formUi.findChild(QRadioButton, 'modernButton_0')
@@ -177,14 +183,6 @@ class AppWindow(QMainWindow):
         typeButton_2 = formUi.findChild(QRadioButton, 'typeButton_2')
         typeButton_0 = formUi.findChild(QRadioButton, 'typeButton_0')
         typeButton_3 = formUi.findChild(QRadioButton, 'typeButton_3')
-
-# modernity (0, 0.3, 0.6, 1)
-# performance (0, 0.3, 0.6, 1)
-# complexity (TINY, TINY 0.5, BIG 0.5, BIG, 0) ???
-# scalability (0, 0.3, 0,6, 1)
-# popularity (0, 0.5, 1)
-# Experienced (0, 1)
-# LangType (SCRIPTED, COMPILED, INTERPRETED, 0)
 
         if modernButton_0.isChecked():
             self.system.userData["modernity"] = 0
@@ -246,13 +244,13 @@ class AppWindow(QMainWindow):
         else:
             self.init_results()
     """
-    assignProjectType method.
+        assignProjectType method.
 
-    Assigns the project type and switches to the form input UI.
+        Assigns the project type and switches to the form input UI.
 
-    Args:
-        self: The AppWindow object.
-        prType (EnumPrType): The project type to assign.
+        Args:
+            self: The AppWindow object.
+            prType (EnumPrType): The project type to assign.
     """
     def assignProjectType(self, prType:EnumPrType):
         self.system.userData["projectType"] = prType
