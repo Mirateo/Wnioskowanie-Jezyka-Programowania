@@ -1,0 +1,337 @@
+[
+    {
+        "label": "EnumLenType",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumPrType",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumSize",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "LanguageInferenceSystem",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PATH",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "LanguageInferenceSystem",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumUI",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumLenType",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumPrType",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumSize",
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "isExtraImport": true,
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "PickleDB",
+        "importPath": "pickledb",
+        "description": "pickledb",
+        "isExtraImport": true,
+        "detail": "pickledb",
+        "documentation": {}
+    },
+    {
+        "label": "PickleDB",
+        "importPath": "pickledb",
+        "description": "pickledb",
+        "isExtraImport": true,
+        "detail": "pickledb",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "generateDatabase",
+        "importPath": "tools.dbService",
+        "description": "tools.dbService",
+        "isExtraImport": true,
+        "detail": "tools.dbService",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "QApplication",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QMainWindow",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QPushButton",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QListWidget",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QListWidgetItem",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QStackedWidget",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QWidget",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QVBoxLayout",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QRadioButton",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSlider",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "loadUi",
+        "importPath": "PyQt5.uic",
+        "description": "PyQt5.uic",
+        "isExtraImport": true,
+        "detail": "PyQt5.uic",
+        "documentation": {}
+    },
+    {
+        "label": "generateDatabase",
+        "kind": 2,
+        "importPath": "tools.dbService",
+        "description": "tools.dbService",
+        "peekOfCode": "def generateDatabase():\n    # Load existing database if exists\n    if os.path.exists(DB_PATH):\n        languagesDB = PickleDB(DB_PATH, auto_dump=True, sig=True)\n        print(f\"Loaded existing database '{DB_PATH}'\")\n        return languagesDB\n    # Create a database instance\n    db = PickleDB(DB_PATH, auto_dump=True, sig=True)\n    # Insert data\n    db.set(",
+        "detail": "tools.dbService",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PATH",
+        "kind": 5,
+        "importPath": "tools.dbService",
+        "description": "tools.dbService",
+        "peekOfCode": "DB_PATH = './database.db'\ndef generateDatabase():\n    # Load existing database if exists\n    if os.path.exists(DB_PATH):\n        languagesDB = PickleDB(DB_PATH, auto_dump=True, sig=True)\n        print(f\"Loaded existing database '{DB_PATH}'\")\n        return languagesDB\n    # Create a database instance\n    db = PickleDB(DB_PATH, auto_dump=True, sig=True)\n    # Insert data",
+        "detail": "tools.dbService",
+        "documentation": {}
+    },
+    {
+        "label": "scrapTiobeIndex",
+        "kind": 2,
+        "importPath": "tools.scrap-tiobe",
+        "description": "tools.scrap-tiobe",
+        "peekOfCode": "def scrapTiobeIndex():\n    url = \"https://www.tiobe.com/tiobe-index/\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        soup = BeautifulSoup(response.text, 'html.parser')\n        language_rows = soup.select('.table-top20 tr')\n        popularity = {}\n        for row in language_rows[1:]:  # Skip the header row\n            columns = row.select('td')\n            if len(columns) >= 3:  # Ensure there are enough columns",
+        "detail": "tools.scrap-tiobe",
+        "documentation": {}
+    },
+    {
+        "label": "EnumPrType",
+        "kind": 6,
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "peekOfCode": "class EnumPrType():\n    OTHER = 0\n    DATA_SCIENCE = 1\n    DATABASE = 2\n    DESKTOP = 3\n    GAME = 4\n    MOBILE = 5\n    SCRIPT = 6\n    WEB = 7\n    EMBEDDED = 8",
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumUI",
+        "kind": 6,
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "peekOfCode": "class EnumUI():\n    MAIN = 0\n    PR_TYPE = 1\n    FORM = 2\n    EXP = 3\n    RESULTS = 4\nclass EnumLenType():\n    SCRIPTED = 0\n    COMPILED = 1\n    INTERPRETED = 2",
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumLenType",
+        "kind": 6,
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "peekOfCode": "class EnumLenType():\n    SCRIPTED = 0\n    COMPILED = 1\n    INTERPRETED = 2\nclass EnumSize():\n    TINY = 0\n    SMALL = 1\n    REGULAR = 2\n    BIG = 3\nclass LanguageInferenceSystem:",
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "EnumSize",
+        "kind": 6,
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "peekOfCode": "class EnumSize():\n    TINY = 0\n    SMALL = 1\n    REGULAR = 2\n    BIG = 3\nclass LanguageInferenceSystem:\n    languagesDB: PickleDB\n    userData = {\"projectType\": None,\n                \"modernity\": None,\n                \"performance\": None,",
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "LanguageInferenceSystem",
+        "kind": 6,
+        "importPath": "inferenceApp",
+        "description": "inferenceApp",
+        "peekOfCode": "class LanguageInferenceSystem:\n    languagesDB: PickleDB\n    userData = {\"projectType\": None,\n                \"modernity\": None,\n                \"performance\": None,\n                \"complexity\": None,\n                \"scalability\": None,\n                \"popularity\": None,\n                \"experienced\": None,\n                \"lenType\": None,",
+        "detail": "inferenceApp",
+        "documentation": {}
+    },
+    {
+        "label": "setup_database",
+        "kind": 2,
+        "importPath": "tests",
+        "description": "tests",
+        "peekOfCode": "def setup_database(monkeypatch):\n    # Arrange: Redirect DB_PATH to the test database path\n    monkeypatch.setattr('inferenceApp.DB_PATH', TEST_DB_PATH)\n    # Ensure any existing test database is removed\n    if os.path.exists(TEST_DB_PATH):\n        os.remove(TEST_DB_PATH)\n    return LanguageInferenceSystem()\n@pytest.mark.parametrize(\"test_id, project_type, modernity, performance, complexity, scalability, popularity, experienced, len_type, experience, expected_top_language\", [\n    # Happy path tests\n    (\"HP-1\", 1, 5, 5, None, 5, 5, True, 2, {'Python': 100}, 'Python'),",
+        "detail": "tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_calculate_score",
+        "kind": 2,
+        "importPath": "tests",
+        "description": "tests",
+        "peekOfCode": "def test_calculate_score(setup_database, test_id, project_type, modernity, performance, complexity, scalability, popularity, experienced, len_type, experience, expected_top_language):\n    system = setup_database\n    # Arrange: Set user data\n    system.userData.update({\n        \"projectType\": project_type,\n        \"modernity\": modernity,\n        \"performance\": performance,\n        \"complexity\": complexity,\n        \"scalability\": scalability,\n        \"popularity\": popularity,",
+        "detail": "tests",
+        "documentation": {}
+    },
+    {
+        "label": "TEST_DB_PATH",
+        "kind": 5,
+        "importPath": "tests",
+        "description": "tests",
+        "peekOfCode": "TEST_DB_PATH = './test_database.db'\n@pytest.fixture\ndef setup_database(monkeypatch):\n    # Arrange: Redirect DB_PATH to the test database path\n    monkeypatch.setattr('inferenceApp.DB_PATH', TEST_DB_PATH)\n    # Ensure any existing test database is removed\n    if os.path.exists(TEST_DB_PATH):\n        os.remove(TEST_DB_PATH)\n    return LanguageInferenceSystem()\n@pytest.mark.parametrize(\"test_id, project_type, modernity, performance, complexity, scalability, popularity, experienced, len_type, experience, expected_top_language\", [",
+        "detail": "tests",
+        "documentation": {}
+    },
+    {
+        "label": "AppWindow",
+        "kind": 6,
+        "importPath": "wnioskowanieJęzyka",
+        "description": "wnioskowanieJęzyka",
+        "peekOfCode": "class AppWindow(QMainWindow):\n    def __init__(self):\n        super(AppWindow, self).__init__()\n        self.system = LanguageInferenceSystem()\n        self.setFixedSize(810, 600)\n        # Create a stacked widget to hold the different UIs\n        self.stacked_widget = QStackedWidget(self)\n        # Load UIs from the files\n        mainUi = loadUi('UIfiles/main.ui')\n        typeUi = loadUi('UIfiles/projectType.ui')",
+        "detail": "wnioskowanieJęzyka",
+        "documentation": {}
+    }
+]

@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QListWidget,
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QRadioButton, QSlider
 from PyQt5.uic import loadUi
 from inferenceApp import LanguageInferenceSystem, EnumUI, EnumLenType, EnumPrType, EnumSize
- 
+
 class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
@@ -30,7 +30,7 @@ class AppWindow(QMainWindow):
 
         # Connect buttons to switch UIs
         startButton.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(EnumUI.PR_TYPE))
-        
+
         embededButton = typeUi.findChild(QPushButton, 'embededButton')
         scriptButton = typeUi.findChild(QPushButton, 'scriptButton')
         gameButton = typeUi.findChild(QPushButton, 'gameButton')
@@ -41,7 +41,7 @@ class AppWindow(QMainWindow):
         databaseButton = typeUi.findChild(QPushButton, 'databaseButton')
         otherButton = typeUi.findChild(QPushButton, 'otherButton')
 
-        embededButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.EMBEDED))
+        embededButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.EMBEDDED))
         scriptButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.SCRIPT))
         gameButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.GAME))
         webButton.clicked.connect(lambda: self.assignProjectType(EnumPrType.WEB))
@@ -101,7 +101,7 @@ class AppWindow(QMainWindow):
             expUi.findChild(QSlider, 'rubySlider'),
             expUi.findChild(QSlider, 'rustSlider'),
             expUi.findChild(QSlider, 'cobolSlider')]
-            
+
         for slider in sliders:
             if slider.value() != 0:
                 self.system.userData["experience"][slider.objectName()[:len(slider.objectName())-6]] = slider.value()/100
@@ -135,15 +135,15 @@ class AppWindow(QMainWindow):
         typeButton_2 = formUi.findChild(QRadioButton, 'typeButton_2')
         typeButton_0 = formUi.findChild(QRadioButton, 'typeButton_0')
         typeButton_3 = formUi.findChild(QRadioButton, 'typeButton_3')
-        
+
 # modernity (0, 0.3, 0.6, 1)
 # performance (0, 0.3, 0.6, 1)
 # complexity (TINY, TINY 0.5, BIG 0.5, BIG, 0) ???
 # scalability (0, 0.3, 0,6, 1)
 # popularity (0, 0.5, 1)
 # Experienced (0, 1)
-# LengType (SCRIPTED, COMPILED, INTERPRETED, 0)
-        
+# LangType (SCRIPTED, COMPILED, INTERPRETED, 0)
+
         if modernButton_0.isChecked():
             self.system.userData["modernity"] = 0
         elif modernButton_1.isChecked():
@@ -198,7 +198,7 @@ class AppWindow(QMainWindow):
             self.system.userData["lenType"] = None
 
         print(self.system.userData)
-    
+
         if self.system.userData["experienced"]:
             self.stacked_widget.setCurrentIndex(EnumUI.EXP)
         else:
