@@ -3,3 +3,4 @@
 /.vscode/*
 /tools/__pycache__
 tools/database.db
+.vscode/PythonImportHelper-v2-Completion.json

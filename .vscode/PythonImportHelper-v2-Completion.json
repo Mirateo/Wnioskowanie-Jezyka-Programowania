@@ -307,7 +307,7 @@
         "kind": 2,
         "importPath": "testInferenceSystem",
         "description": "testInferenceSystem",
-        "peekOfCode": "def test_parseLanguage_sunny(system):\n    # Arrange\n    index = 1\n    language = \"Python\"\n    # Act\n    result = system.parseLanguage(index, language)\n    # Assert\n    assert isinstance(result, str)\n    assert result.startswith(f\"{index}. {language} |\\n\"\n        \"\\tTOP#1 in January 2024, type: interpreted, modernity: 9/10, performance: 8/10, scalability:7/10,\\n\"",
+        "peekOfCode": "def test_parseLanguage_sunny(system):\n    # Arrange\n    index = 1\n    language = \"Python\"\n    # Act\n    result = system.parseLanguage(index, language)\n    # Assert\n    assert isinstance(result, str)\n    assert result.startswith(f\"{index}. {language}\\n\"\n        \"\\tTOP#1 in January 2024, type: interpreted, modernity: 9/10, performance: 8/10, scalability:7/10,\\n\"",
         "detail": "testInferenceSystem",
         "documentation": {}
     },
@@ -325,7 +325,7 @@
         "kind": 6,
         "importPath": "WnioskowanieJezyka",
         "description": "WnioskowanieJezyka",
-        "peekOfCode": "class AppWindow(QMainWindow):\n    def __init__(self):\n        super(AppWindow, self).__init__()\n        self.system = LanguageInferenceSystem()\n        self.setFixedSize(810, 600)\n        # Create a stacked widget to hold the different UIs\n        self.stacked_widget = QStackedWidget(self)\n        # Load UIs from the files\n        mainUi = loadUi('UIfiles/main.ui')\n        typeUi = loadUi('UIfiles/projectType.ui')",
+        "peekOfCode": "class AppWindow(QMainWindow):\n    def __init__(self):\n        super(AppWindow, self).__init__()\n        self.system = LanguageInferenceSystem()\n        self.setFixedSize(810, 600)\n        self.setWindowTitle(\"System Wnioskowania Optymalnego Języka Programowania\")\n        # Create a stacked widget to hold the different UIs\n        self.stacked_widget = QStackedWidget(self)\n        # Load UIs from the files\n        mainUi = loadUi('UIfiles/main.ui')",
         "detail": "WnioskowanieJezyka",
         "documentation": {}
     }

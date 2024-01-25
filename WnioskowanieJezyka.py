@@ -22,6 +22,7 @@ class AppWindow(QMainWindow):
         super(AppWindow, self).__init__()
         self.system = LanguageInferenceSystem()
         self.setFixedSize(810, 600)
+        self.setWindowTitle("System Wnioskowania Optymalnego Języka Programowania")
 
         # Create a stacked widget to hold the different UIs
         self.stacked_widget = QStackedWidget(self)

@@ -85,7 +85,7 @@ class LanguageInferenceSystem:
         # project type matches = 1; doesn't match = 0
         if (self.userData["projectType"] == 0 or
             self.userData["projectType"] in languageData["Project type"]):
-            score += 1
+            score += 3
         # + <0, 1>
         # (modernity level <0-10> * importance for user [0, 0.3, 0.6, 1]) / 10
         if self.userData["modernity"] is not None:
@@ -123,8 +123,8 @@ class LanguageInferenceSystem:
                 language in self.userData["experience"]):
             score += self.userData["experience"][language]/100
 
-        # score = <0, 10>
-        # language type value 3 points - as non-fuzzy value, every other aspect 0-1 point
+        # score = <0, 12>
+        # language nad project type values 3 points each - as non-fuzzy values, every other aspect 0-1 point
         return score
 
     """
@@ -183,7 +183,7 @@ class LanguageInferenceSystem:
 
         langDict['Project type'] = types
 
-        return (f"{index}. {language} |\n\tTOP#{langDict['PopularityTop']} in January 2024, type: "
+        return (f"{index}. {language}\n\tTOP#{langDict['PopularityTop']} in January 2024, type: "
                 f"{langDict['Language type']}, modernity: {langDict['Modernity']}/10, "
                 f"performance: {langDict['Performance']}/10, scalability:"
                 f"{langDict['Scalability']}/10,\n\tRecommended for {langDict['Complexity']}"

@@ -53,7 +53,7 @@ def test_calculateScore_max(system):
     score = system.calculateScore(language)
     # Assert
     assert isinstance(score, float)
-    assert score == 10
+    assert score == 12
     # Teardown
     system.languagesDB.drem("TEST")
 
@@ -98,7 +98,7 @@ def test_parseLanguage_sunny(system):
     result = system.parseLanguage(index, language)
     # Assert
     assert isinstance(result, str)
-    assert result.startswith(f"{index}. {language} |\n"
+    assert result.startswith(f"{index}. {language}\n"
         "\tTOP#1 in January 2024, type: interpreted, modernity: 9/10, performance: 8/10, scalability:7/10,\n"
         "\tRecommended for ['tiny', 'small', 'regular']['data science', 'database', 'desktop', 'game', 'mobile', 'script', 'web', 'embeded/IoT'] projects")
 
