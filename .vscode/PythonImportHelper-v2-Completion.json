@@ -1571,6 +1571,31 @@
         "documentation": {}
     },
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "LanguageInferenceSystem",
+        "importPath": "InferenceSystem",
+        "description": "InferenceSystem",
+        "isExtraImport": true,
+        "detail": "InferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "LanguageInferenceSystem",
+        "importPath": "InferenceSystem",
+        "description": "InferenceSystem",
+        "isExtraImport": true,
+        "detail": "InferenceSystem",
+        "documentation": {}
+    },
+    {
         "label": "QApplication",
         "importPath": "PyQt5.QtWidgets",
         "description": "PyQt5.QtWidgets",
@@ -1656,14 +1681,6 @@
         "description": "PyQt5.uic",
         "isExtraImport": true,
         "detail": "PyQt5.uic",
-        "documentation": {}
-    },
-    {
-        "label": "LanguageInferenceSystem",
-        "importPath": "InferenceSystem",
-        "description": "InferenceSystem",
-        "isExtraImport": true,
-        "detail": "InferenceSystem",
         "documentation": {}
     },
     {
@@ -1813,6 +1830,60 @@
         "description": "InferenceSystem",
         "peekOfCode": "class LanguageInferenceSystem:\n    languagesDB: PickleDB\n    userData = {\"projectType\": None,\n                \"modernity\": None,\n                \"performance\": None,\n                \"complexity\": None,\n                \"scalability\": None,\n                \"popularity\": None,\n                \"experienced\": None,\n                \"lenType\": None,",
         "detail": "InferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "system",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def system():\n    return LanguageInferenceSystem()\ndef test_calculateScore(system):\n    # Arrange\n    system.userData = {\n        \"projectType\": 1,\n        \"modernity\": 0.6,\n        \"performance\": 0.6,\n        \"complexity\": 2,\n        \"scalability\": 0.6,",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_calculateScore",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_calculateScore(system):\n    # Arrange\n    system.userData = {\n        \"projectType\": 1,\n        \"modernity\": 0.6,\n        \"performance\": 0.6,\n        \"complexity\": 2,\n        \"scalability\": 0.6,\n        \"popularity\": 1,\n        \"experienced\": True,",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_calculateScore_max",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_calculateScore_max(system):\n    # Arrange\n    system.userData = {\n        \"projectType\": 1,\n        \"modernity\": 1,\n        \"performance\": 1,\n        \"complexity\": 1,\n        \"scalability\": 1,\n        \"popularity\": 1,\n        \"experienced\": True,",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_calculateScore_min",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_calculateScore_min(system):\n    # Arrange\n    system.userData = {\n        \"projectType\": 1,\n        \"modernity\": 1,\n        \"performance\": 1,\n        \"complexity\": 1,\n        \"scalability\": 1,\n        \"popularity\": 1,\n        \"experienced\": True,",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_parseLanguage_sunny",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_parseLanguage_sunny(system):\n    # Arrange\n    index = 1\n    language = \"Python\"\n    # Act\n    result = system.parseLanguage(index, language)\n    # Assert\n    assert isinstance(result, str)\n    assert result.startswith(f\"{index}. {language} |\\n\"\n        \"\\tTOP#1 in January 2024, type: interpreted, modernity: 9/10, performance: 8/10, scalability:7/10,\\n\"",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_parseLanguage_rainy",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_parseLanguage_rainy(system):\n    # Arrange\n    index = 1\n    language = \"Polish\"\n    # Act and Assert\n    with pytest.raises(TypeError) as e:\n        result = system.parseLanguage(index, language)\n    assert str(e.value) == \"'bool' object is not subscriptable\"",
+        "detail": "testInferenceSystem",
         "documentation": {}
     },
     {

@@ -237,8 +237,6 @@ class AppWindow(QMainWindow):
         elif typeButton_3.isChecked():
             self.system.userData["lenType"] = None
 
-        print(self.system.userData)
-
         if self.system.userData["experienced"]:
             self.stacked_widget.setCurrentIndex(EnumUI.EXP)
         else:

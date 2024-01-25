@@ -97,7 +97,7 @@ class LanguageInferenceSystem:
         # + [0, 0.5, 1]
         # complexity matches = 1; complexity almost matches = 0.5, doesn't match = 0
         if (self.userData["complexity"] is None or (len(languageData["Complexity"]) and
-            self.userData["complexity"] == languageData["Complexity"])):
+            self.userData["complexity"] in languageData["Complexity"])):
             score += 1
         else:
             for complexity in languageData["Complexity"]:
@@ -116,15 +116,15 @@ class LanguageInferenceSystem:
         # language type matches = 5; doesn't match = 0
         if self.userData["lenType"] is None or\
                 self.userData["lenType"] == languageData["Language type"]:
-            score += 5
+            score += 3
         # + <0, 1>
         # experience_level <0-100> / 100
         if (self.userData["experienced"] is not None and self.userData["experienced"] and
                 language in self.userData["experience"]):
             score += self.userData["experience"][language]/100
 
-        # score = <0, 12>
-        # language type value 5 points - as non-fuzzy value, every other aspect 0-1 point
+        # score = <0, 10>
+        # language type value 3 points - as non-fuzzy value, every other aspect 0-1 point
         return score
 
     """
