@@ -2,3 +2,4 @@
 /.pytest_cache
 /.vscode/*
 /tools/__pycache__
+tools/database.db
