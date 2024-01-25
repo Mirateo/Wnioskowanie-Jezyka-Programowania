@@ -117,13 +117,13 @@ class LanguageInferenceSystem:
         if self.userData["lenType"] is None or\
                 self.userData["lenType"] == languageData["Language type"]:
             score += 3
-        # + <0, 1>
+        # + <0, 2>
         # experience_level <0-100> / 100
         if (self.userData["experienced"] is not None and self.userData["experienced"] and
                 language in self.userData["experience"]):
-            score += self.userData["experience"][language]/100
+            score += self.userData["experience"][language]/50
 
-        # score = <0, 12>
+        # score = <0, 13>
         # language nad project type values 3 points each - as non-fuzzy values, every other aspect 0-1 point
         return score
 

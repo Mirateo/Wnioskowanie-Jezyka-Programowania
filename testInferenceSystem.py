@@ -53,7 +53,7 @@ def test_calculateScore_max(system):
     score = system.calculateScore(language)
     # Assert
     assert isinstance(score, float)
-    assert score == 12
+    assert score == 13
     # Teardown
     system.languagesDB.drem("TEST")
 
