@@ -111,3 +111,90 @@ def test_parseLanguage_rainy(system):
     with pytest.raises(TypeError) as e:
         result = system.parseLanguage(index, language)
     assert str(e.value) == "'bool' object is not subscriptable"
+
+def test_run(system):
+    # Arrange
+    system.userData = {
+        "projectType": None,
+        "modernity": 1,
+        "performance": None,
+        "complexity": None,
+        "scalability": None,
+        "popularity": None,
+        "experienced": False,
+        "lenType": None,
+        "experience": {}
+    }
+    # Act
+    results = system.run()
+    # Assert
+    assert isinstance(results[0], str)
+    assert results[0].startswith("1. Python")
+    # Arrange
+    system.userData = {
+        "projectType": None,
+        "modernity": None,
+        "performance": 1,
+        "complexity": None,
+        "scalability": None,
+        "popularity": None,
+        "experienced": False,
+        "lenType": None,
+        "experience": {}
+    }
+    # Act
+    results = system.run()
+    # Assert
+    assert isinstance(results[0], str)
+    assert results[0].startswith("1. C")
+    # Arrange
+    system.userData = {
+        "projectType": None,
+        "modernity": None,
+        "performance": None,
+        "complexity": None,
+        "scalability": 1,
+        "popularity": None,
+        "experienced": False,
+        "lenType": None,
+        "experience": {}
+    }
+    # Act
+    results = system.run()
+    # Assert
+    assert isinstance(results[0], str)
+    assert results[0].startswith("1. GO")
+    # Arrange
+    system.userData = {
+        "projectType": None,
+        "modernity": None,
+        "performance": None,
+        "complexity": None,
+        "scalability": None,
+        "popularity": True,
+        "experienced": False,
+        "lenType": None,
+        "experience": {}
+    }
+    # Act
+    results = system.run()
+    # Assert
+    assert isinstance(results[0], str)
+    assert results[0].startswith("1. Python")
+    # Arrange
+    system.userData = {
+        "projectType": None,
+        "modernity": None,
+        "performance": None,
+        "complexity": None,
+        "scalability": None,
+        "popularity": None,
+        "experienced": True,
+        "lenType": None,
+        "experience": {}
+    }
+    # Act
+    results = system.run()
+    # Assert
+    assert isinstance(results[0], str)
+    assert results[0].startswith("1. Python")

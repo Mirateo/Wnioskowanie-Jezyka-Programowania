@@ -316,7 +316,16 @@
         "kind": 2,
         "importPath": "testInferenceSystem",
         "description": "testInferenceSystem",
-        "peekOfCode": "def test_parseLanguage_rainy(system):\n    # Arrange\n    index = 1\n    language = \"Polish\"\n    # Act and Assert\n    with pytest.raises(TypeError) as e:\n        result = system.parseLanguage(index, language)\n    assert str(e.value) == \"'bool' object is not subscriptable\"",
+        "peekOfCode": "def test_parseLanguage_rainy(system):\n    # Arrange\n    index = 1\n    language = \"Polish\"\n    # Act and Assert\n    with pytest.raises(TypeError) as e:\n        result = system.parseLanguage(index, language)\n    assert str(e.value) == \"'bool' object is not subscriptable\"\ndef test_run(system):\n    # Arrange",
+        "detail": "testInferenceSystem",
+        "documentation": {}
+    },
+    {
+        "label": "test_run",
+        "kind": 2,
+        "importPath": "testInferenceSystem",
+        "description": "testInferenceSystem",
+        "peekOfCode": "def test_run(system):\n    # Arrange\n    system.userData = {\n        \"projectType\": None,\n        \"modernity\": 1,\n        \"performance\": None,\n        \"complexity\": None,\n        \"scalability\": None,\n        \"popularity\": None,\n        \"experienced\": False,",
         "detail": "testInferenceSystem",
         "documentation": {}
     },
