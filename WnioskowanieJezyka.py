@@ -1,3 +1,8 @@
+"""
+======================= START OF LICENSE NOTICE =======================
+  Copyright (C) 2024 Mateusz Murawski. All Rights Reserved
+======================== END OF LICENSE NOTICE ========================
+"""
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QListWidget, QListWidgetItem
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QRadioButton, QSlider
 from PyQt5.uic import loadUi

@@ -1,3 +1,8 @@
+"""
+======================= START OF LICENSE NOTICE =======================
+  Copyright (C) 2024 Mateusz Murawski. All Rights Reserved
+======================== END OF LICENSE NOTICE ========================
+"""
 import requests
 from bs4 import BeautifulSoup
 

@@ -1,3 +1,8 @@
+"""
+======================= START OF LICENSE NOTICE =======================
+  Copyright (C) 2024 Mateusz Murawski. All Rights Reserved
+======================== END OF LICENSE NOTICE ========================
+"""
 from pickledb import PickleDB
 import os
 from .Enums import EnumLenType, EnumPrType, EnumSize

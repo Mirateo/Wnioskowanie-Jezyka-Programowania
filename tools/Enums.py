@@ -1,4 +1,8 @@
-
+"""
+======================= START OF LICENSE NOTICE =======================
+  Copyright (C) 2024 Mateusz Murawski. All Rights Reserved
+======================== END OF LICENSE NOTICE ========================
+"""
 """
 EnumPrType class.
 This class represents an enumeration of project types.
